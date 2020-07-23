@@ -9,6 +9,7 @@ export default (reducer, actions, initialState) => {
     // actions === { addBlogPost: (dispatch) => { return () => {} }}
     const boundActions = {};
     for (let key in actions) {
+      //TODO: debug here to see what is actions
       boundActions[key] = actions[key](dispatch);
     }
 
