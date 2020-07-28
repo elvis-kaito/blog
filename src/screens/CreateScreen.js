@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
-import { View, Text } from "react-native";
 import { Context } from "../context/BlogContext";
+import BlogPostForm from "../components/BlogPostForm";
 
 const CreateScreen = ({ navigation }) => {
-  return (
-    <View>
-      <Text>Create Screen</Text>
-    </View>
-  );
+  const { addBlogPost } = useContext(Context);
+
+  return <BlogPostForm />;
 };
 
 export default CreateScreen;
