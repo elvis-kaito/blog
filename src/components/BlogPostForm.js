@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { View, StyleSheet, Text, Button } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 
-const BlogPostForm = () => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+const BlogPostForm = ({ onSubmit, initialValues }) => {
+  const [title, setTitle] = useState(initialValues.title);
+  const [content, setContent] = useState(initialValues.content);
 
   return (
     <View>
@@ -20,9 +20,16 @@ const BlogPostForm = () => {
         value={content}
         onChangeText={(text) => setContent(text)}
       />
-      <Button title="Add Blog Post" />
+      <Button title="Add Blog Post" onPress={() => onSubmit(title, content)} />
     </View>
   );
+};
+
+BlogPostForm.defaultProps = {
+  initialValues: {
+    title: "",
+    content: "",
+  },
 };
 
 const styles = StyleSheet.create({
